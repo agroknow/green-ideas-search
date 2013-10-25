@@ -118,6 +118,10 @@ function getItemJSONP(urlTemp) {
                         }
                     }
                 }
+                else
+                {
+	                jQuery('#itemKeywords').append("-");
+                }
                 
                 //-Type Of Event (context)
                 if (item.tokenBlock.contexts !== undefined) {
@@ -129,6 +133,10 @@ function getItemJSONP(urlTemp) {
                             jQuery('#itemTypeOfEvent').append('<span class="forKomma">' + item.tokenBlock.contexts[j] + '<span>');
                         }
                     }
+                }
+                else
+                {
+	                jQuery('#itemTypeOfEvent').append("-");
                 }
                 
                 //-Classification
