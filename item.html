@@ -1,0 +1,185 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb"><head>
+<!--   <base href="http://www.natural-europe.eu/en"> -->
+
+<!-- AK - CSS-JS -->
+	<link rel="stylesheet/less" type="text/css" media="screen" href="css/ak-style.less" />
+	<script src="js/less-1.5.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/view_item.js"></script>
+    <script src="js/jquery.js"></script>
+    
+    <script type="text/javascript">
+        function getItem()
+        {
+           getItemJSONP('http://83.212.96.169:8080/akifRetriever/getAKIF?ids='+location.search.split("=")[1]);
+        }
+    </script> 
+
+<!-- /AK -->
+
+</head>
+
+<body onload="getItem(); /* recommendations_widget(); */" id="main_content">
+
+				<!-- AK - main content -->
+				<div id="maincontent" class="with-sidebar">
+                <!-------------------------------------------------------- start search-->
+                <section id="main">
+                <!-- <div class="sorting"><a href="index.html">Home Page</a> > Results</div> -->
+<!--
+                <div id="ak_navigation">
+									<a class="inactive" href="index.html">Home > </a>
+									<a class="inactive" href="listing.html?query=*">Search > </a>
+									<a href="#">View Item</a>
+								</div>
+-->
+
+                <section id="search">
+                            
+                            <div >
+                                <div>
+                                    <form class="form-wrapper cf" action="listing.html" method="get">
+                                        <div>
+                                            <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search..." required>
+                                                <button type="submit">Search</button>
+                                                </div>
+                                        <!--<input type="submit" value="submit" />-->
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </section>
+                <!-------------------------------------------------------- end start search-->
+               
+                
+                <!-- item content -->
+                
+                <div class="twocols clearfix">
+                    
+                    <aside class="leftSidebarInfo">
+                        <div >
+                            <ul class="floatleft cleanList">
+                                <h2 class="more_info_head">More Info</h2>
+                                
+                                <li class="cleanRow">
+                                    <span class="labels">Language:</span>
+                                    <nav id="itemLanguage"></nav>
+                                </li>
+                                <li class="cleanRow">
+                                    <span class="labels">Media Type:</span>
+                                    <nav id="itemFormat"></nav>
+                                </li>
+                                <li class="cleanRow">
+                                    <span class="labels">Date:</span>
+                                    <nav id="itemDate"></nav>
+                                </li>
+                                
+                                <li class="cleanRow">
+                                    <span class="labels">Type:</span>
+                                    <nav id="itemType"></nav>
+                                </li>
+                                <li class="cleanRow">
+                                    <span class="labels">Target audience:</span>
+                                    <nav id="itemTargetAudience"></nav>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                        
+                    </aside>
+                    
+                    <section id="itemCenterInfo">
+                    			<!-- Title -->
+                    			<div>
+                    				<span class="labels">Title:</span>
+                                    <p class="title" id="itemTitle"></p>
+                                </div>
+                                
+                                <!-- Description -->
+                                <div>
+                                	<span class="labels">Description:</span>
+                                    <p class="content" id="itemDescription"></p>
+                                </div>
+                                
+                                <!-- Thumb -->
+                                <!-- <div class="thumb" id="itemThumb"></div> -->
+                                
+                                <!-- Keywords -->
+                                <div>
+                                	<span class="labels">Keywords:</span>
+                                    <p class="content" id="itemKeywords"></p>
+                                </div>
+                                
+                                <!-- TypeOfEvent -->
+                                <div>
+                                	<span class="labels">Type Of Event:</span>
+                                    <p class="content" id="itemTypeOfEvent"></p>
+                                </div>
+                                
+                                <!-- Classification -->
+                                <div>
+                                	<span class="labels">Classification:</span>
+                                    <p class="content" id="itemClassification"></p>
+                                </div>
+                                
+                                <!-- Rights -->
+                                <div>
+                                	<span class="labels">Rights:</span>
+                                    <p class="content" id="itemRights"></p>
+                                </div>
+                                
+                                <!-- Related lr from GLN -->
+                                <div>
+                                	<span class="labels">Related Resources:</span>
+                                    <p class="content" id="itemRelated"></p>
+                                </div>
+                                
+                                <div class="clearfix">
+                                    <div class="floatright"><a href="mailto:info@agroknow.gr?Subject=Green%20Learning%20Network" class="reportaproblem  secondary">Report a problem</a></div>
+                                    <div class="floatright" style="margin-right: 15px;" id="itemAccess"></div>
+                                </div>
+                          
+                    </section>
+                </div>
+            
+                <!-- end item content-->
+                
+			<!--<div id="widget">
+                    <p>Recommended Resources</p>
+                </div>-->
+
+                </section>
+				</div><!--end maincontent-->
+				<!-- /AK - main content -->
+				
+				
+<!--
+<script>
+var WIDGET_HOST = "socialcomputing.know-center.tugraz.at/"; //change this to localhost if all of the web stuff is run on your own server
+var WIDGET_PATH = "VisRecWidget/"; //change this to path on the localhost if everything is run on your own server
+var WIDGET_TAG = "widget";
+function recommendations_widget(){
+
+	var item_id = location.search.split("=")[1];
+	console.log("recommendations_widget for " + item_id);
+	try {
+		var x = document.createElement("SCRIPT");
+		x.type = "text/javascript";
+		x.src = "http://" + WIDGET_HOST + WIDGET_PATH + "LoadListVIZ_alternate.js";
+		x.setAttribute("RecommendationType", "user"); //"user" for user recommendations
+        x.setAttribute("ViewType","ListSmall"); //ListLarge or ListSmall - purely informational
+        x.setAttribute("NumRecommendations", 5); //how many recommendations are shown
+        x.setAttribute("RecommendationIdentifier", item_id); //either resource or user id
+        x.setAttribute("WidgetWidth", "250");
+        x.setAttribute("WidgetHeight", "650");
+        x.setAttribute("ShowTop", "false"); //set to "true" or "false" to show title, search box, and sort options
+        x.setAttribute("WidgetTitle", ""); //empty if no title
+		x.setAttribute('id', 'ListWidget');
+		document.getElementById("left_sidebar").appendChild(x);
+	} catch (e) {}
+
+};
+</script>
+-->
+
+</body></html>
