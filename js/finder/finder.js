@@ -50,8 +50,9 @@ var FACET_LABELS = {};
 var SELECTED_LANGUAGE = "en";
 
 FACET_LABELS['context'] = 'Type of Events';
-FACET_LABELS['lrt'] = 'Type';
+FACET_LABELS['lrt'] = 'Resource Type';
 FACET_LABELS['iur'] = 'Intended User Role';
+FACET_LABELS['format'] = 'Media Type';
 //FACET_LABELS['date'] = 'Date';
 
 
