@@ -48,13 +48,37 @@ function getItemJSONP(urlTemp) {
                 }
                 
                 //-Date
-                jQuery('#itemDate').append(getElement(item.contributors[0].date ).split('T')[0]);
+                if(item.contributors[0]!=undefined)
+                {
+	                jQuery('#itemDate').append(getElement(item.contributors[0].date ).split('T')[0]);
+                }
+                else
+                {
+	                jQuery('#itemDate').append("-");
+                }
+                
                 
                 //-Type
-                document.getElementById('itemType').innerHTML = getElement(item.tokenBlock.learningResourceTypes[0]);
+                if(item.tokenBlock.learningResourceTypes!=undefined)
+                {
+                	document.getElementById('itemType').innerHTML = getElement(item.tokenBlock.learningResourceTypes[0]);
+                }
+                else
+                {
+	                document.getElementById('itemType').innerHTML = "-";
+                }
+                
 
                 //-Intended User Roles
-                document.getElementById('itemTargetAudience').innerHTML = getElement(item.tokenBlock.endUserRoles[0]);
+                if(item.tokenBlock.endUserRoles!=undefined)
+                {
+                	document.getElementById('itemTargetAudience').innerHTML = getElement(item.tokenBlock.endUserRoles[0]);
+                }
+                else
+                {
+	                document.getElementById('itemTargetAudience').innerHTML = "-";
+                }
+                
                 
                 
                 //-------------CENTER DIV INFO
@@ -79,7 +103,7 @@ function getItemJSONP(urlTemp) {
                 }
                 
                 //-Keywords
-                if (languageBlock.keywords.length !== undefined) 
+                if (languageBlock.keywords !== undefined && languageBlock.keywords.length !== undefined) 
                 {
                    //*ARRAY of keywords in current version
                    for (var j = 0; j < languageBlock.keywords.length; j++) 
