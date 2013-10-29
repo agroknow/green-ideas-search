@@ -1,20 +1,20 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb"><head>
-<!--   <base href="http://www.natural-europe.eu/en"> -->
-
+<?php
+	$css = drupal_get_path('module', 'ak_search_teo')."/edu/css";
+	$js =  drupal_get_path('module', 'ak_search_teo')."/edu/js";
+	$im =  drupal_get_path('module', 'ak_search_teo')."/edu/images";
+	?>
 			
 <!-- AK- CSS & SCRIPTS -->
-<link rel="stylesheet/less" type="text/css" media="screen" href="css/ak-style.less" />
-<script src="js/less-1.5.0.min.js" type="text/javascript"></script>
-<script src="js/view_item.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/layerslider.css" />
-
+<link rel="stylesheet/less" type="text/css" media="screen" href="<?php echo $css; ?>/ak-style.less" />
+<script src="<?php echo $js ?>/less-1.5.0.min.js" type="text/javascript"></script>
+<script src="<?php echo $js ?>/view_item.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo $css; ?>/layerslider.css" />
 <!-- / AK -->
-			
-</head>
 
-<body id="main_content">
 
-	<!-- AK - main content -->
+<!-- <body id="main_content"> SHOULD BE REMOVED -->
+
+<!-- AK - main content -->
 
 <!--
 	<div id="ak_navigation">
@@ -47,7 +47,7 @@
 	<section id="search">
         <div >
             <div>
-                <form class="form-wrapper cf" action="listing.html" method="get">
+                <form class="form-wrapper cf" action="<?php echo url('ak_search_teo_listing');?>" method="get">
                     <div>
                         <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search Green Ideas data pool" required>
                             <button type="submit">Search</button>
@@ -62,9 +62,9 @@
     <section class="icons_nav">
      	<h3>Featured Themes</h3>
         <nav class="aligncenter three">
-            <a href="listing.html?query=*&lrt=pathway" class="le0">Event's pathway</a>
-            <a href="listing.html?query=*&lrt=challenges" class="le0">Challenges</a>
-            <a href="listing.html?query=*&lrt=prototypes" class="le1">Prototypes</a>
+            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=pathway" class="le0">Event's pathway</a>
+            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=challenges" class="le0">Challenges</a>
+            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=prototypes" class="le1">Prototypes</a>
         </nav>
     </section>
     
@@ -74,8 +74,8 @@
     <section class="icons_nav">
      	<h3>Hot Topics</h3>
         <nav class="aligncenter two">
-            <a href="listing.html?query=food" class="le2">Food</a>
-            <a href="listing.html?query=green" class="le3">Green Knowledge</a>
+            <a href="<?php echo url('ak_search_teo_listing');?>?query=food" class="le2">Food</a>
+            <a href="<?php echo url('ak_search_teo_listing');?>?query=green" class="le3">Green Knowledge</a>
         </nav>
     </section>
     
@@ -88,9 +88,9 @@
 			<h4><a href="http://www.youtube.com/watch?v=DnNPUaxtH3Y" target="_blank">Green Ideas 2013 - Model Presentation - AromaticSurvivorLand</a></h4>
 			<p><b>The group that worked on the business idea goal in the 2013 edition of Green Ideas, is presenting its work in front of the other groups of participants.</p>
 				<p>Keywords: <a href="listing.html?query=aromatic plants">aromatic plants</a>, 
-				<a href="listing.html?query=business ideas">business ideas</a>, 
-				<a href="listing.html?query=Crete">Crete</a>, 
-				<a href="listing.html?query=Heraklion">Heraklion</a></p>
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=business ideas">business ideas</a>, 
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=Crete">Crete</a>, 
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=Heraklion">Heraklion</a></p>
 		</div>
 	</section>
 		
@@ -101,20 +101,20 @@
 		<div class="item">
 			<h4><a href="http://idea-pathway-creator.greenideasproject.org/greenideas/exhibits/show/Pathway-2/to-begin-with" target="_blank">Green Ideas 2013 - Business Ideas for Aromatic Plants</a></h4>
 			<p><b>This is a pathway that contains the groupwork from one of the teams of Green Ideas 2013, focusing on potential business ideas that can turn aromatic plants into a viable enterpreneurship.</p>
-				<p>Keywords: <a href="listing.html?query=aromatic plants">aromatic plants</a>, 
-				<a href="listing.html?query=business ideas">business ideas</a>, 
-				<a href="listing.html?query=Crete">Crete</a>, 
-				<a href="listing.html?query=Heraklion">Heraklion</a></p>
+				<p>Keywords: <a href="<?php echo url('ak_search_teo_listing');?>?query=aromatic plants">aromatic plants</a>, 
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=business ideas">business ideas</a>, 
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=Crete">Crete</a>, 
+				<a href="<?php echo url('ak_search_teo_listing');?>?query=Heraklion">Heraklion</a></p>
 			
 		</div>
 	</section>
 	
 <!-- 	    <script src="http://code.jquery.com/jquery-1.8.2.js"></script> -->
-		<script src="js/jquery.js"></script>
+		<script src="<?php echo $js;?>/jquery.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
 		<!-- include Paralax plugin -->
-		<script src="js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+		<script src="<?php echo $js; ?>/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
 	
 			<script type="text/javascript">
 			$(document).ready(function () {
@@ -150,4 +150,3 @@
             </script>
 	
 	<!-- /AK - main content -->
-</body></html>

@@ -1,11 +1,16 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb"><head>
+<?php
+    $css = drupal_get_path('module', 'ak_search_teo')."/edu/css";
+    $js =  drupal_get_path('module', 'ak_search_teo')."/edu/js";
+    $im =  drupal_get_path('module', 'ak_search_teo')."/edu/images";
+    ?>
+
 <!--   <base href="http://www.natural-europe.eu/en"> -->
 
 <!-- AK - CSS-JS -->
-	<link rel="stylesheet/less" type="text/css" media="screen" href="css/ak-style.less" />
-	<script src="js/less-1.5.0.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/view_item.js"></script>
-    <script src="js/jquery.js"></script>
+	<link rel="stylesheet/less" type="text/css" media="screen" href="<?php echo $css ?>/ak-style.less" />
+	<script src="<?php echo $js ?>/less-1.5.0.min.js" type="text/javascript"></script>
+    <script src="<?php echo $js ?>/view_item.js" type="text/javascript" ></script>
+    <script src="<?php echo $js ?>/jquery.js" type="text/javascript"></script>
     
     <script type="text/javascript">
         function getItem()
@@ -24,11 +29,11 @@
 				<div id="maincontent" class="with-sidebar">
                 <!-------------------------------------------------------- start search-->
                 <section id="main">
-                <!-- <div class="sorting"><a href="index.html">Home Page</a> > Results</div> -->
+                <!-- <div class="sorting"><a href="<?php echo url('ak_search_teo_index');?>">Home Page</a> > Results</div> -->
 <!--
                 <div id="ak_navigation">
-									<a class="inactive" href="index.html">Home > </a>
-									<a class="inactive" href="listing.html?query=*">Search > </a>
+									<a class="inactive" href="<?php echo url('ak_search_teo_index');?>">Home > </a>
+									<a class="inactive" href="<?php echo url('ak_search_teo_listing');?>?query=*">Search > </a>
 									<a href="#">View Item</a>
 								</div>
 -->
@@ -37,7 +42,7 @@
                             
                             <div >
                                 <div>
-                                    <form class="form-wrapper cf" action="listing.html" method="get">
+                                    <form class="form-wrapper cf" action="<?php echo url('ak_search_teo_listing');?>" method="get">
                                         <div>
                                             <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search..." required>
                                                 <button type="submit">Search</button>

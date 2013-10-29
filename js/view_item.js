@@ -110,10 +110,10 @@ function getItemJSONP(urlTemp) {
                     {
                         if (j == languageBlock.keywords.length - 1) 
                         {
-                            jQuery('#itemKeywords').append('<a  href="listing.html?query=' 
+                            jQuery('#itemKeywords').append('<a  href=drupalVariables.listingurl+'?query=' 
                             + languageBlock.keywords[j] + '" class="forKomma link last">' + languageBlock.keywords[j] + '</a>');
                         } else {
-                            jQuery('#itemKeywords').append('<a  href="listing.html?query=' 
+                            jQuery('#itemKeywords').append('<a  href=drupalVariables.listingurl+'?query=' 
                             + languageBlock.keywords[j] + '" class="forKomma link">' + languageBlock.keywords[j] + '</a>');
                         }
                     }

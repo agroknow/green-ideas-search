@@ -663,12 +663,12 @@ function initializeJamlTemplates() {
 	        {
 		        if (i !== length-1) 
 		        {
-                    keywordsToEmbed += "<a href=\"listing.html?query=" 
+                    keywordsToEmbed += "<a href=\"drupalVariables.listingurl?query=" 
                     + data.keywords[i].value + "\">&nbsp" + data.keywords[i].value + ",</a>"
                 } 
                 else 
                 {
-                    keywordsToEmbed += "<a href=\"listing.html?query=" 
+                    keywordsToEmbed += "<a href=\"drupalVariables.listingurl?query=" 
                     + data.keywords[i].value.split(" ")[0] + "\">&nbsp" + data.keywords[i].value + "</a>"
                 }
 
@@ -684,7 +684,7 @@ function initializeJamlTemplates() {
 		        h2(a({ href: data.location, title: 'Opens the actual resource in a new tab', target: '_blank'}, data.thisTitle)), 
 		        section(p({cls: 'item-intro-desc'}, span({cls:'label'}, "Description:"), data.thisDescription), 
 		        div(div({cls: 'line keywords'}, span({cls:'label'}, "Keywords:"), keywordsToEmbed)), 
-		        div({cls: 'moreinfo'}, a({href: "item.html?id=" + id, title: 'View all data of this item.', cls: 'moreinfo'}, "View Full Info")))
+		        div({cls: 'moreinfo'}, a({href: "drupalVariables.itemurl?id=" + id, title: 'View all data of this item.', cls: 'moreinfo'}, "View Full Info")))
 		        )
 	        )
     });
@@ -709,7 +709,7 @@ function initializeJamlTemplates() {
 		        h2(a({ href: data.location, title: 'Opens the actual resource in a new tab', target: '_blank'}, data.thisTitle)), 
 		        section(p({cls: 'item-intro-desc'}, span({cls:'label'}, "Description:"), data.thisDescription), 
 		        /* div(div({cls: 'line keywords'}, span({cls:'label'}, "Keywords:"), keywordsToEmbed)), */ 
-		        div({cls: 'moreinfo'}, a({href: "item.html?id=" + id, title: 'View all data of this item.', cls: 'moreinfo'}, "View Full Info")))
+		        div({cls: 'moreinfo'}, a({href: "drupalVariables.itemurl?id=" + id, title: 'View all data of this item.', cls: 'moreinfo'}, "View Full Info")))
 		        )
 	        )
     });
