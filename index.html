@@ -1,7 +1,7 @@
 <?php
-	$css = drupal_get_path('module', 'ak_search_teo')."/edu/css";
-	$js =  drupal_get_path('module', 'ak_search_teo')."/edu/js";
-	$im =  drupal_get_path('module', 'ak_search_teo')."/edu/images";
+	$css = drupal_get_path('module', 'ak_search')."/edu/css";
+	$js =  drupal_get_path('module', 'ak_search')."/edu/js";
+	$im =  drupal_get_path('module', 'ak_search')."/edu/images";
 	?>
 			
 <!-- AK- CSS & SCRIPTS -->
@@ -48,7 +48,7 @@
 	<section id="search">
         <div >
             <div>
-                <form class="form-wrapper cf" action="<?php echo url('ak_search_teo_listing');?>" method="get">
+                <form class="form-wrapper cf" action="<?php echo url('ak_search_listing');?>" method="get">
                     <div>
                         <input type="text" name="query" id="query" class="withplaceholder" placeholder="Search Green Ideas data pool" required>
                             <button type="submit">Search</button>
@@ -63,9 +63,9 @@
     <section class="icons_nav">
      	<h3>Featured Themes</h3>
         <nav class="aligncenter three">
-            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=pathway" class="le0">Event's pathway</a>
-            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=challenges" class="le0">Challenges</a>
-            <a href="<?php echo url('ak_search_teo_listing');?>?query=*&lrt=prototypes" class="le1">Prototypes</a>
+            <a href="<?php echo url('ak_search_listing');?>?query=*&lrt=pathway" class="pathway">Event's pathway</a>
+            <a href="<?php echo url('ak_search_listing');?>?query=*&lrt=challenges" class="challenge">Challenges</a>
+            <a href="<?php echo url('ak_search_listing');?>?query=*&lrt=prototypes" class="prototype">Prototypes</a>
         </nav>
     </section>
     
@@ -75,8 +75,8 @@
     <section class="icons_nav">
      	<h3>Hot Topics</h3>
         <nav class="aligncenter two">
-            <a href="<?php echo url('ak_search_teo_listing');?>?query=food" class="le2">Food</a>
-            <a href="<?php echo url('ak_search_teo_listing');?>?query=green" class="le3">Green Knowledge</a>
+            <a href="<?php echo url('ak_search_listing');?>?query=food" class="nutrition">Nutrition</a>
+            <a href="<?php echo url('ak_search_listing');?>?query=green" class="knowledge">Green Knowledge</a>
         </nav>
     </section>
     
@@ -89,9 +89,9 @@
 			<h4><a href="http://www.youtube.com/watch?v=DnNPUaxtH3Y" target="_blank">Green Ideas 2013 - Model Presentation - AromaticSurvivorLand</a></h4>
 			<p><b>The group that worked on the business idea goal in the 2013 edition of Green Ideas, is presenting its work in front of the other groups of participants.</p>
 				<p>Keywords: <a href="listing.html?query=aromatic plants">aromatic plants</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=business ideas">business ideas</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=Crete">Crete</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=Heraklion">Heraklion</a></p>
+				<a href="<?php echo url('ak_search_listing');?>?query=business ideas">business ideas</a>, 
+				<a href="<?php echo url('ak_search_listing');?>?query=Crete">Crete</a>, 
+				<a href="<?php echo url('ak_search_listing');?>?query=Heraklion">Heraklion</a></p>
 		</div>
 	</section>
 		
@@ -102,10 +102,10 @@
 		<div class="item">
 			<h4><a href="http://idea-pathway-creator.greenideasproject.org/greenideas/exhibits/show/Pathway-2/to-begin-with" target="_blank">Green Ideas 2013 - Business Ideas for Aromatic Plants</a></h4>
 			<p><b>This is a pathway that contains the groupwork from one of the teams of Green Ideas 2013, focusing on potential business ideas that can turn aromatic plants into a viable enterpreneurship.</p>
-				<p>Keywords: <a href="<?php echo url('ak_search_teo_listing');?>?query=aromatic plants">aromatic plants</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=business ideas">business ideas</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=Crete">Crete</a>, 
-				<a href="<?php echo url('ak_search_teo_listing');?>?query=Heraklion">Heraklion</a></p>
+				<p>Keywords: <a href="<?php echo url('ak_search_listing');?>?query=aromatic plants">aromatic plants</a>, 
+				<a href="<?php echo url('ak_search_listing');?>?query=business ideas">business ideas</a>, 
+				<a href="<?php echo url('ak_search_listing');?>?query=Crete">Crete</a>, 
+				<a href="<?php echo url('ak_search_listing');?>?query=Heraklion">Heraklion</a></p>
 			
 		</div>
 	</section>
