@@ -4,6 +4,7 @@
 @lightgreen:#88be50;
 @orangered:#f14705;
 @lightgray:rgba(0,0,0,0.2);
+@darkgray:rgba(0,0,0,0.7);
 
 
 /* GENERAL & LANDING PAGE */
@@ -13,6 +14,37 @@
 	width:950px;
 	margin:20px auto;
 	font-family: sans-serif;
+	
+}
+
+#breadcrump
+{
+	width:700px;
+	border-top:1px solid @darkgreen;
+	border-bottom:1px solid @darkgreen;
+	margin:5px auto 30px;
+	padding-left:10px;
+	
+	a{
+		
+		&.active
+		{
+			font-weight: bold;
+			color: @darkgray;
+		}
+		
+		&.inactive
+		{
+			font-weight: normal;
+			color: gray;
+			
+			&:hover
+			{
+				font-weight: bold;
+				color: @darkgray;
+			}
+		}
+	}
 	
 }
 
@@ -720,6 +752,11 @@
 		list-style: none;
 		padding-left: 0px;	
 		padding-right: 5px;
+		
+		li
+		{
+			margin-bottom: 0px;
+		}
 
 	}
 	
@@ -727,7 +764,6 @@
 	.labels
 	{
 		font-size: 1em;
-		float:left;
 		font-style:italic;
 		margin-right:5px;
 		color:gray;
@@ -748,12 +784,11 @@
 	display: inline-block;
 	width:690px;
 	float:right;
+	font-size: 1.1em;
 	
 	.labels
 	{
-		float:left;
 		font-size: 1em;
-		float:left;
 		font-style:italic;
 		margin-right:5px;
 		color:gray;
@@ -769,11 +804,18 @@
 		text-decoration: none;
 		color: @olivebrown;
 		
+		
 		&:hover
 		{
 			text-decoration: underline;
 		}
+		
+		&.title
+		{
+			font-size: 1.3em;
+		}
 	}
+	
 	
 }
 

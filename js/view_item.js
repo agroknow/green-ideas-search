@@ -87,13 +87,13 @@ function getItemJSONP(urlTemp) {
                 {
                     var thisTitle = languageBlock.title;
                     if (arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url !== undefined) {
-                        thisTitle = "<a target=\"_blank\" href=\"" + arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url + "\">" + languageBlock.title + "</a>"
+                        thisTitle = "<a class=\"title\" target=\"_blank\" href=\"" + arrayWithJSONS[0].expressions[0].manifestations[0].items[0].url + "\">" + languageBlock.title + "</a>"
                     }
-                    document.getElementById('itemTitle').innerHTML = thisTitle;
+                    document.getElementById('itemTitle').innerHTML = sanitizeData(thisTitle);
                 }
                 
                 //-Description
-                document.getElementById('itemDescription').innerHTML = getElement(languageBlock.description);
+                document.getElementById('itemDescription').innerHTML = sanitizeData(getElement(languageBlock.description));
 
 				//-Access to the resource
 				if (item.expressions[0].manifestations[0].items[0].url !== undefined) 
@@ -111,10 +111,10 @@ function getItemJSONP(urlTemp) {
                         if (j == languageBlock.keywords.length - 1) 
                         {
                             jQuery('#itemKeywords').append('<a  href='+drupalVariables.listingurl+'?query=' 
-                            + languageBlock.keywords[j] + '" class="forKomma link last">' + languageBlock.keywords[j] + '</a>');
+                            + languageBlock.keywords[j] + '" class="forKomma link last">' + sanitizeData(languageBlock.keywords[j]) + '</a>');
                         } else {
                             jQuery('#itemKeywords').append('<a  href='+drupalVariables.listingurl+'?query=' 
-                            + languageBlock.keywords[j] + '" class="forKomma link">' + languageBlock.keywords[j] + '</a>');
+                            + languageBlock.keywords[j] + '" class="forKomma link">' + sanitizeData(languageBlock.keywords[j]) + '</a>');
                         }
                     }
                 }
@@ -142,7 +142,23 @@ function getItemJSONP(urlTemp) {
                 //-Classification
                 if(item.tokenBlock.taxonPaths!=undefined)
                 {
-	                jQuery('#itemClassification').append(getElement(item.tokenBlock.taxonPaths['en']) );
+                   var temp = "";
+                   var ctr=0;
+	               for(element in item.tokenBlock.taxonPaths)
+	               {
+	               	  var temp_value="";
+	               	  for(var i=0;i<item.tokenBlock.taxonPaths[element].length;i++)
+	               	  {	
+	               	  	  temp_value += item.tokenBlock.taxonPaths[element][i];
+	               	  }
+	               	  
+	               	  if(ctr!=0){temp+="<br>";}
+	               	  ctr++;
+		              temp +=element+" : "+temp_value.replace("::", ",");
+		              
+	               }
+	               		
+	               jQuery('#itemClassification').append(temp);
                 }
                 else
                 {
@@ -151,22 +167,45 @@ function getItemJSONP(urlTemp) {
                 
                 
                 //-Rights
-                if(item.tokenBlock.description!=undefined)
+                if(item.rights!=undefined && item.rights.url!=undefined)
                 {
-                	jQuery('#itemRights').append( getElement(item.rights.description['en']));
+				        if(item.rights.url.search("licenses/by-nc-sa")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by-nc-sa.png"></a></nav>');
+				        }else if(item.rights.url.search("licenses/by-nc-nd")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by-nc-nd.png"></a></nav>');
+				        }else if(item.rights.url.search("licenses/by-nd")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by-nd.png"></a></nav>');
+				        }else if(item.rights.url.search("licenses/by-sa")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by-sa.png"></a></nav>');
+				        }else if(item.rights.url.search("licenses/by-nc")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by-nc.png"></a></nav>');
+				        }else if(item.rights.url.search("licenses/by")>=0){
+					        jQuery('#itemRights').append(' <nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank"><img style="display:inline;" src="'+drupalVariables.impath+'/cc/cc-by.png"></a></nav>');
+				        
+				        }
+				        else
+				        {
+					        jQuery('#itemRights').append('<nav  class="itemRights"><a href="'+item.rights.url+'"  target="_blank">'+item.rights.url+'</a></nav>');
+				        }
+                
             	}
                 else
                 {
 	                 jQuery('#itemRights').append("-");
                 }
                 
+                
                 //-Related
-                if(item.learningObjectives['Green ideas'])
+                if(item.learningObjectives!=undefined && item.learningObjectives.length>0)
                 {
-	                for(var temp in item.learningObjectives['Green ideas'])
-	                {
-	                    jQuery('#itemRelated').append(getElement(item.learningObjectives['Green ideas'][temp]));
-	                }
+                	for(var temp_out in item.learningObjectives)
+                	{
+	                	for(var temp in item.learningObjectives[temp_out])
+		                {
+		                    jQuery('#itemRelated').append(getElement(item.learningObjectives['Green ideas'][temp]));
+		                }
+                	}
+	                
 	            }
                 else
                 {
@@ -216,6 +255,14 @@ function getElement(data)
 	}	
 	return element;
 
+}
+
+function sanitizeData(value)
+{
+	/* remove '&quot;' */
+	var sanitized = value.replace(/&amp;quot;/g, "\"");
+	
+	return sanitized;
 }
 
 // ADD THE LINK TO THE BANNER IMAGES

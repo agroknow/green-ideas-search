@@ -1,8 +1,8 @@
 
 <?php
-	$css = drupal_get_path('module', 'ak_search_teo')."/edu/css";
-	$js =  drupal_get_path('module', 'ak_search_teo')."/edu/js";
-	$im =  drupal_get_path('module', 'ak_search_teo')."/edu/images";
+	$css = drupal_get_path('module', 'ak_search')."/edu/css";
+	$js =  drupal_get_path('module', 'ak_search')."/edu/js";
+	$im =  drupal_get_path('module', 'ak_search')."/edu/images";
 	?>
 <style type="text/css">
 .item-intro header{position:static;}
@@ -30,12 +30,7 @@
 	<!-- AK - main content -->
 
 <div id="main_content">
-<!--
-	<div id="ak_navigation">
-			<a class="inactive" href="<?php echo url('ak_search_teo_index');?>">Home ></a> <a href="#">Search</a>
-		</div>
--->
-		
+
 		<section id="search">
 	        <div >
 	            <div>
@@ -46,22 +41,29 @@
 	                            </div>
 	                    <!--<input type="submit" value="submit" />-->
 	                </form>
-	                
+
 	            </div>
 	        </div>
 	    </section>
+
+		<!-------------------------------------------------------- Breadcrump--->
+	    <div id="breadcrump">
+		    <a class="inactive" href="<?php echo url('ak_search_index');?>">Home /</a><a class="active"> Search results</a>
+	    </div>
+	    <!-------------------------------------------------------- end Breadcrump--->
+
 	    <section class="listing">
 	        <div id="insert_pagination_top" class="aligncenter"></div>
-	        
+
 	        <div id="insert_results"></div> <!--results from AJAX call-->
-	        
+
 	        <div id="insert_pagination_bottom" class="aligncenter"></div>
 	    </section>
 	<!--filters-->
 	<aside class="filter">
 	    <div id="insert_summary" ></div><!-- Results : (1 - 12 of 216) from Ajax.JSONRequest() -->
 	    <div id="search_status" ></div>
-	    
+
 	    <!--<div><input type="text" name="search_filter" class="search_filter" placeholder="Search results"/></div>-->
 	    <div id="insert_facets" ></div>
 	    <div class="remove_filters" style="padding: 3px 0 3px 0;">
@@ -69,11 +71,11 @@
 	    </div>
 	</aside>
 	<!--end filters-->
-	
-		
+
+
 	<!-- /main content -->
-													
-</div> <!-- end main_content -->											
+
+</div> <!-- end main_content -->
 <!-- AK-customize finder -->
 <script type="text/javascript">
     /*
@@ -91,10 +93,8 @@
                     "pageSize": 6,
                     "repositoryName": "Organic.Edunet",
                     "repositoryName": "Organic.Edunet",
-                    /* "serviceUrl":"http://54.228.180.124:8080/glnRepo/api/ariadne/restp" */
-					/* "serviceUrl":"http://83.212.96.219:8080/glnRepo/api/ariadne/restp" */
-					"serviceUrl":"http://83.212.96.169:8080/glnRepo/api/ariadne/restp"
-            
+					"serviceUrl":"http://54.228.180.124:8080/glnRepo/api/ariadne/restp"
+
         }
     }
     </script>
